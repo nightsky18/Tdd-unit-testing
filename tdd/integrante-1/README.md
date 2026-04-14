@@ -162,32 +162,45 @@ Cada función usa una **expresión regular específica** para extraer la parte d
 ***
 ## Ejercicio 2 — JUnit5 adaptado a Jest
 
-> 📋 *Esta sección se completará al avanzar.*
+### Excepción metodológica documentada
+
+En este ejercicio se crea primero `calculadora.js` y después `junit5.test.js`.
+
+**Justificación:** este punto del proyecto no busca desarrollar una nueva funcionalidad con TDD estricto, sino demostrar en Jest los equivalentes de anotaciones y aserciones de JUnit5. Para que `beforeAll`, `beforeEach`, `afterEach`, `afterAll`, `test.skip()`, `toBe()`, `toBeNull()` y `toThrow()` tengan una base real de prueba, primero se define una clase simple de soporte (`Calculadora`).
 
 ### Archivos
 
 | Archivo | Estado | Descripción |
 |---------|--------|-------------|
-| `junit5-adaptado/calculadora.js` | ⏳ Pendiente | Implementación de soporte |
-| `junit5-adaptado/junit5.test.js` | ⏳ Pendiente | Suite de equivalencias JUnit5 |
+| `junit5-adaptado/calculadora.js` | ✅ Creado | Implementación de soporte para demostrar equivalentes de JUnit5 |
+| `junit5-adaptado/junit5.test.js` | ✅ Creado | Suite de equivalencias JUnit5 |
+
+***
+### Paso 4 — Implementación de soporte creada
+
+> Evidencia: `calculadora.js` creado antes del test por excepción metodológica documentada.
+
+![Paso 4 - calculadora creada](./assets/calculadora-creada.png)
 
 ***
 
-## Historial de commits sugeridos
+### Paso 5 — Suite JUnit5 adaptada en Jest (`junit5.test.js`)
 
-```bash
-# Paso 1 — 🔴 RED
-git commit -m "test(integrante-1): agrega suite TDD parseador ecuación 1er grado [RED]"
+| JUnit5 | Jest | Demostrado en |
+|--------|------|---------------|
+| `@Test` | `test()` | J-01 al J-13 |
+| `@BeforeEach` | `beforeEach()` | Reinicia instancia antes de cada test |
+| `@AfterEach` | `afterEach()` | Limpia historial después de cada test |
+| `@BeforeAll` | `beforeAll()` | Inicializa contador una sola vez |
+| `@AfterAll` | `afterAll()` | Reporta total al finalizar suite |
+| `@Disabled` | `test.skip()` | J-07: potencia no implementada |
+| `assertEquals` | `expect().toBe()` | J-01, J-02, J-08, J-11 al J-13 |
+| `assertNull` | `expect().toBeNull()` | J-09: historial vacío |
+| `assertThrows` | `expect().toThrow()` | J-10: división por cero |
 
-# Paso 2 — 🟢 GREEN
-git commit -m "feat(integrante-1): implementa parseador.js para pasar todos los tests [GREEN]"
+### Evidencia — Paso 5: suite JUnit5 pasando
 
-# Paso 3 — 🔵 REFACTOR
-git commit -m "refactor(integrante-1): limpia lógica del parseador sin romper tests"
-
-# Paso 4+5 — JUnit5
-git commit -m "feat(integrante-1): agrega calculadora y suite JUnit5 adaptada a Jest"
-```
+![Paso 5 - JUnit5 adaptado](./assets/junit5-jest.png)
 
 ***
 
