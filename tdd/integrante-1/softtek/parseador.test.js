@@ -1,7 +1,6 @@
 /**
  * parseador.test.js
  * Ejercicio 1 — Softtek: Parseador de ecuación de primer grado
- * Ciclo TDD: 🔴 RED — tests escritos ANTES de la implementación
  *
  * Formato de ecuación soportado: "ax + b = c" | "ax - b = c"
  * Ejemplos: "2x + 1 = 3" | "10x - 5 = 15" | "x + 3 = 7"

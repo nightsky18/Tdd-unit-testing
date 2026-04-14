@@ -146,7 +146,18 @@ Cada función usa una **expresión regular específica** para extraer la parte d
 ***
 ### Paso 3 — 🔵 REFACTOR
 
-> 📋 *Pendiente de revisión tras confirmar GREEN en el entorno local.*
+**Acciones de refactor realizadas:**
+- Se centralizaron las expresiones regulares en un objeto `REGEX`.
+- Se centralizaron los mensajes de error en un objeto `ERROR`.
+- Se creó un helper `extraer()` para evitar repetir la lógica de validación de coincidencias.
+- No se agregó nueva funcionalidad; solo se mejoró legibilidad y mantenibilidad.
+
+**Verificación posterior al refactor:**
+- `18 passed, 18 total`
+
+### Evidencia — 🔵 REFACTOR: tests siguen pasando
+
+![Fase REFACTOR - tests siguen pasando](./assets/refactor-parseador.png)
 
 ***
 ## Ejercicio 2 — JUnit5 adaptado a Jest
