@@ -80,13 +80,13 @@ Si operador es "-": x = (c + b) / a
 | Archivo | Estado | Descripción |
 |---------|--------|-------------|
 | `softtek/parseador.test.js` | ✅ Creado (🔴 RED) | Suite de tests unitarios |
-| `softtek/parseador.js` | ⏳ Pendiente | Implementación mínima (Paso 2) |
+| `softtek/parseador.js` | ✅ Creado (🟢 GREEN) | Implementación mínima |
 
 ***
 
 ### Paso 1 — 🔴 RED: Suite de tests (`parseador.test.js`)
 
-**Estado:** Tests escritos. La implementación **no existe aún** → todos los tests fallan.
+**Estado:** Tests escritos. La implementación **no existía aún** → todos los tests fallaban.
 
 #### Matriz de casos de prueba
 
@@ -120,6 +120,35 @@ Si operador es "-": x = (c + b) / a
 
 ![Fase RED - parseador no encontrado](./assets/red-parseador.png)
 
+***
+
+### Paso 2 — 🟢 GREEN: Implementación mínima (`parseador.js`)
+
+**Estado:** Implementación creada con mínimo código para pasar los 18 tests.
+
+#### Estrategia de implementación
+
+Cada función usa una **expresión regular específica** para extraer la parte de la ecuación que le corresponde:
+
+| Función | Regex utilizada | Qué captura |
+|---------|----------------|-------------|
+| `obtenerParte1` | `/^(-?\d*)x/` | Dígitos antes de `x` (vacío → 1, `-` → -1) |
+| `obtenerParte2` | `/x\s*[+\-]\s*(\d+)\s*=/` | Dígitos entre el operador y `=` |
+| `obtenerParte3` | `/=\s*(-?\d+)/` | Número después del `=`, incluye negativos |
+| `obtenerOperador` | `/x\s*([+\-])\s*\d/` | El símbolo `+` o `-` entre `x` y `b` |
+
+#### Evidencia — 🟢 GREEN: 18/18 tests pasando
+
+> Captura tomada tras crear `parseador.js`.
+
+![Fase GREEN - parseador encontrado](./assets/green-parseador.png)
+
+***
+### Paso 3 — 🔵 REFACTOR
+
+> 📋 *Pendiente de revisión tras confirmar GREEN en el entorno local.*
+
+***
 ## Ejercicio 2 — JUnit5 adaptado a Jest
 
 > 📋 *Esta sección se completará al avanzar.*
