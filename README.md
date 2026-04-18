@@ -1,10 +1,10 @@
 # Tdd-unit-testing
 
-> **Politécnico Colombiano Jaime Isaza Cadavid**  
-> Ingeniería de Sistemas — ING01201 Pruebas y Gestión de la Configuración  
+> **Politécnico Colombiano Jaime Isaza Cadavid**
+> Ingeniería de Sistemas — ING01201 Pruebas y Gestión de la Configuración
 > Docente: David Fernando Mejia Tabares
 
-Proyecto grupal de implementación de **pruebas unitarias con la metodología TDD** (Test Driven Development).  
+Proyecto grupal de implementación de **pruebas unitarias con la metodología TDD** (Test Driven Development).
 Valor: **12.5% de la nota final** — entrega grupal.
 
 ---
@@ -36,7 +36,7 @@ Tdd-unit-testing/
 │   │   └── junit5-adaptado/
 │   └── integrante-4/               → Mariana Montoya Sepúlveda
 │       ├── softtek/
-│       └── junit5-adaptado/
+│       └── junit5/
 └── crud/
     ├── javascript/                 → CRUD Películas con TDD en JavaScript (Jest)
     └── python/                     → CRUD Películas con TDD en Python (pytest)
@@ -46,13 +46,11 @@ Tdd-unit-testing/
 
 ## Fuentes de los ejercicios
 
-Los ejercicios individuales se basan en los siguientes recursos:
-
-1. **JUnit5 User Guide** — [https://junit.org/junit5/docs/current/user-guide/#running-tests](https://junit.org/junit5/docs/current/user-guide/#running-tests)  
+1. **JUnit5 User Guide** — https://junit.org/junit5/docs/current/user-guide/#running-tests
    Adaptación de los conceptos y anotaciones de JUnit5 al ecosistema JavaScript con Jest.
 
-2. **Blog Softtek — Testing Unitario** — [https://blog.softtek.com/es/testing-unitario](https://blog.softtek.com/es/testing-unitario)  
-   Implementación del ejercicio de parseador y resolución de ecuaciones de primer grado `ax + b = c`.
+2. **Blog Softtek — Testing Unitario** — https://blog.softtek.com/es/testing-unitario
+   Implementación del parseador y resolución de ecuaciones de primer grado `ax + b = c`.
 
 ---
 
@@ -62,14 +60,14 @@ Los ejercicios individuales se basan en los siguientes recursos:
 
 Cada integrante implementa con TDD un **parseador de ecuaciones de primer grado** de la forma `ax + b = c`.
 
-Funciones a desarrollar:
+Funciones desarrolladas:
 - `obtenerParte1(ecuacion)` → extrae el coeficiente `a`
 - `obtenerParte2(ecuacion)` → extrae el término independiente `b`
 - `obtenerParte3(ecuacion)` → extrae el lado derecho `c`
 - `obtenerOperador(ecuacion)` → detecta si la operación es `+` o `-`
 - `obtenerResultado(ecuacion)` → resuelve la ecuación: `x = (c - b) / a`
 
-### Ejercicio 2 — JUnit5 adaptado a Jest (`junit5-adaptado/`)
+### Ejercicio 2 — JUnit5 adaptado a Jest (`junit5/`)
 
 Cada integrante implementa en JavaScript los equivalentes de las anotaciones y aserciones de JUnit5:
 
@@ -81,9 +79,13 @@ Cada integrante implementa en JavaScript los equivalentes de las anotaciones y a
 | `@BeforeAll` | `beforeAll()` |
 | `@AfterAll` | `afterAll()` |
 | `@Disabled` | `test.skip()` |
+| `@Nested` | `describe()` |
 | `assertEquals` | `expect().toBe()` |
+| `assertTrue` | `expect().toBe(true)` |
+| `assertFalse` | `expect().toBe(false)` |
 | `assertNull` | `expect().toBeNull()` |
-| `assertThrows` | `expect().toThrow()` |
+| `assertNotNull` | `expect().not.toBeNull()` |
+| `assertThrows` | `expect(() => {}).toThrow()` |
 
 ### Ejercicio 3 — CRUD Películas con TDD (`crud/`)
 
@@ -117,12 +119,12 @@ CRUD grupal de gestión de **películas** en dos lenguajes diferentes.
 Todos los ejercicios siguen el ciclo obligatorio:
 
 ```
-🔴 Red    → Escribir el test que falla (la función aún no existe)
-🟢 Green  → Implementar el mínimo código para que el test pase
+🔴 Red      → Escribir el test que falla (la función aún no existe)
+🟢 Green    → Implementar el mínimo código para que el test pase
 🔵 Refactor → Limpiar y mejorar el código sin romper los tests
 ```
 
-**Regla fundamental:** ningún archivo de implementación (`.js`, `.py`) puede existir antes que su archivo de tests correspondiente.
+**Regla fundamental:** ningún archivo de implementación puede existir antes que su archivo de tests.
 
 ---
 
@@ -142,35 +144,133 @@ Todos los ejercicios siguen el ciclo obligatorio:
 ```bash
 # Instalar dependencias
 npm install
-
-# Correr todos los tests
-npm test
-
-# Correr tests con cobertura
-npm run test:coverage
-
-# Correr tests de un integrante específico
-npx jest tdd/integrante-1/ --verbose
-
-# Correr tests del CRUD JavaScript
-npx jest crud/javascript/ --verbose
 ```
 
 ### Python (pytest)
 
 ```bash
-# Instalar pytest
 pip install pytest
 
-# Correr tests del CRUD Python
-pytest crud/python/ -v
+# Si pytest no está en el PATH (Windows):
+python -m pip install pytest
 ```
 
 ---
 
-## Flujo de trabajo en Git
+## Comandos de ejecución
 
-Cada integrante trabaja en su propia rama y abre un Pull Request hacia `main`:
+### Todos los tests del proyecto (JavaScript)
+
+```bash
+npx jest --verbose
+```
+
+---
+
+### Integrante 1 — Mateo Berrío Cardona
+
+```bash
+# Todos sus tests
+npx jest tdd/integrante-1/ --verbose
+
+# Solo ejercicio Softtek
+npx jest tdd/integrante-1/softtek/ --verbose
+
+# Solo ejercicio JUnit5
+npx jest tdd/integrante-1/junit5-adaptado/ --verbose
+```
+
+---
+
+### Integrante 2 — Esteban Cano Ramírez
+
+```bash
+# Todos sus tests
+npx jest tdd/integrante-2/ --verbose
+
+# Solo ejercicio Softtek
+npx jest tdd/integrante-2/softtek/ --verbose
+
+# Solo ejercicio JUnit5
+npx jest tdd/integrante-2/junit5-adaptado/ --verbose
+```
+
+---
+
+### Integrante 3 — Yeimy Daniela Herrera Bedoya
+
+```bash
+# Todos sus tests
+npx jest tdd/integrante-3/ --verbose
+
+# Solo ejercicio Softtek
+npx jest tdd/integrante-3/softtek/ --verbose
+
+# Solo ejercicio JUnit5
+npx jest tdd/integrante-3/junit5-adaptado/ --verbose
+```
+
+---
+
+### Integrante 4 — Mariana Montoya Sepúlveda
+
+```bash
+# Todos sus tests
+npx jest tdd/integrante-4/ --verbose
+
+# Solo ejercicio Softtek
+npx jest tdd/integrante-4/softtek/ --verbose
+
+# Solo ejercicio JUnit5
+npx jest tdd/integrante-4/junit5/ --verbose
+```
+
+---
+
+### CRUD — JavaScript (Jest)
+
+```bash
+# Todos los tests del CRUD JavaScript
+npx jest crud/javascript/ --verbose
+
+# Un archivo específico
+npx jest crud/javascript/peliculas.test.js --verbose
+```
+
+---
+
+### CRUD — Python (pytest)
+
+```bash
+# Desde la carpeta crud/python/
+cd crud/python
+python -m pytest test_peliculas.py -v
+
+# Desde la raíz del proyecto
+python -m pytest crud/python/test_peliculas.py -v
+
+# Con reporte de cobertura (requiere pytest-cov)
+pip install pytest-cov
+python -m pytest crud/python/test_peliculas.py -v --cov=peliculas
+```
+
+---
+
+### Resumen de todos los comandos
+
+| Módulo | Comando |
+|---|---|
+| Todos los tests JS | `npx jest --verbose` |
+| Integrante 1 | `npx jest tdd/integrante-1/ --verbose` |
+| Integrante 2 | `npx jest tdd/integrante-2/ --verbose` |
+| Integrante 3 | `npx jest tdd/integrante-3/ --verbose` |
+| Integrante 4 | `npx jest tdd/integrante-4/ --verbose` |
+| CRUD JavaScript | `npx jest crud/javascript/ --verbose` |
+| CRUD Python | `python -m pytest crud/python/test_peliculas.py -v` |
+
+---
+
+## Flujo de trabajo en Git
 
 ```bash
 # Clonar el repositorio
@@ -192,7 +292,7 @@ git push origin tdd/integrante-X
 - `tdd/integrante-2` — Esteban Cano Ramírez
 - `tdd/integrante-3` — Yeimy Daniela Herrera Bedoya
 - `tdd/integrante-4` — Mariana Montoya Sepúlveda
-- `crud/peliculas` — desarrollo grupal del CRUD
+- `CRUD` — desarrollo grupal del CRUD
 
 ---
 
