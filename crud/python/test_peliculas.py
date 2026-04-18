@@ -1,7 +1,7 @@
-from peliculas import Peliculas
+import sys, os
 import pytest
-
-
+sys.path.insert(0, os.path.dirname(__file__))
+from peliculas import Peliculas
 @pytest.fixture
 def db():
     return Peliculas()
