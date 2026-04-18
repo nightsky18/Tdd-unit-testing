@@ -117,9 +117,6 @@ python -m pytest test_peliculas.py -v
 | JavaScript | Jest 29 | 14 passed | ✅ |
 | Python | pytest 9 | 14 passed | ✅ |
 
-### Evidencia — todos los tests
-
-![All CRUD Tests](./assets/all-crud-tests.png)
 
 ---
 
